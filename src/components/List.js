@@ -1,9 +1,12 @@
 import React from "react";
-const List = (props) => {
-  console.log("PROPS: ", props);
+import ListItem from "./ListItem";
+const List = ({ todosArray }) => {
+  const newTodos = todosArray.map((elem, i) => {
+    return <ListItem key={i} id={elem.id} todoTitle={elem.todo} />;
+  });
   return (
     <>
-      <ul className="Task"></ul>
+      <ul>{newTodos}</ul>
     </>
   );
 };
